@@ -14,20 +14,20 @@ Browser Detection
 There is one method to call for getting the user's browser:
 
 - `bsGetBrowser()` : detects the type of browser and returns the following possible values: 
-..* `IE Mobile`
-..* `IE`
-..* `Firefox Mobile`
-..* `Firefox`
-..* `Android`
-..* `Chrome Mobile`
-..* `Chrome`
-..* `Opera Mini`
-..* `Opera Mobile`
-..* `Opera`
-..* `Safari Mobile`
-..* `Safari`
-..* `Blackberry`
-... If none of these browsers are detected, the user agent string is returned for parsing.
+ * `IE Mobile`
+ * `IE`
+ * `Firefox Mobile`
+ * `Firefox`
+ * `Android`
+ * `Chrome Mobile`
+ * `Chrome`
+ * `Opera Mini`
+ * `Opera Mobile`
+ * `Opera`
+ * `Safari Mobile`
+ * `Safari`
+ * `Blackberry`
+ * If none of these browsers are detected, the user agent string is returned for parsing.
 
 Image Lazy Loading
 ------------------
