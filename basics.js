@@ -204,7 +204,7 @@ function bsIsTouch() {
 }
 
 
-// Check if device has a 
+// Check if device has a retina display
 
 function bsIsRetina() {
 	return window.devicePixelRatio > 1;
