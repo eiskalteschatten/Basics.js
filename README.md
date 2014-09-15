@@ -32,13 +32,15 @@ There is one method to call for getting the user's browser:
 Image Lazy Loading
 ------------------
 
-There are three methods to call for lazy loading images:
+There are five methods to call for lazy loading images:
 
-- `bsLazyLoadImages(fadeIn)` : fadeIn is true/false; this lazy loads all images on the page with the required parts in the image tag (see below)
-- `bsLazyLoadImagesWithOffset(fadeIn, offset)` : fadeIn is true/false; offset is the number of pixels outside of the viewport the image should load
-- `bsLazyLoadImage(img, fadeIn)` : load a specific image (must be passed as a jQuery object, i.e. `$('#myImage')`); fadeIn is true/false
+- `bsLazyLoadImages(fadeIn)` : "fadeIn" is true/false; this lazy loads all images on the page with the required parts in the image tag (see below)
+- `bsLazyLoadImagesWithOffset(fadeIn, offset)` : "fadeIn" is true/false; "offset" is the number of pixels outside of the viewport the image should load
+- `bsLazyLoadImagesWithCallback(fadeIn, callback)` : "fadeIn" is true/false; "callback" is the name of the method to be called (can be null); this lazy loads all images on the page with the required parts in the image tag (see below)
+- `bsLazyLoadImagesWithOffsetAndCallback(fadeIn, offset, callback)` : "fadeIn" is true/false; "offset" is the number of pixels outside of the viewport the image should load; "callback" is the name of the method to be called (can be null)
+- `bsLazyLoadImage(img, fadeIn, callback)` : load a specific image (must be passed as a jQuery object, i.e. `$('#myImage')`); "fadeIn" is true/false; "callback" is the name of the method to be called (can be null)
 
-You should call these methods on window load, on window scroll, or whenever you want the images to load:
+You should call these methods on window load, on window scroll, or whenever you want the images to load. A few examples:
 
 ```javascript
 	$(document).ready(function() {	 				
@@ -55,6 +57,12 @@ You should call these methods on window load, on window scroll, or whenever you 
 ```javascript
 	$('#myButton').click(function() {	 				
 		bsLazyLoadImages(false);
+	});
+```
+
+```javascript
+	$(window).scroll(function() {	 				
+		bsLazyLoadImagesWithOffsetAndCallback(true, 1000, "imageCallback();");
 	});
 ```
 
@@ -106,6 +114,14 @@ Check if device is a touch screen
 There is one method which checks whether the user's device is a touch device or not:
 
 - `bsIsTouch()` : returns true or false
+
+
+Check if device is has a retina display
+---------------------------------------
+
+There is one method which checks whether the user's device has a retina display or not:
+
+- `bsIsRetina()` : returns true or false
 
 
 Set and get cookies

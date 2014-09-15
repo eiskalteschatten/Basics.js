@@ -1,6 +1,6 @@
 /*
 *	Basics.js
-*	Version 0.2
+*	Version 0.2.2
 *	Copyright (c) Alex Seifert 2014
 *	http://www.alexseifert.com
 *	https://github.com/eiskalteschatten/Basics.js
@@ -120,23 +120,48 @@ function bsIsScrolledIntoViewWithOffset(elem, offset) {
 
 function bsLazyLoadImages(fadeIn) {
 	$('img.bsLazyLoad').each(function() {
-		bsLazyLoadImage($(this), fadeIn);
+		bsLazyLoadImage($(this), fadeIn, null);
 	});
 }
 
 
 // Lazy load images with an offset
+//		- fadeIn: true/false - Images will fade in after loading
 //		- offset: Pixel offset for when the images should be loaded
 
 function bsLazyLoadImagesWithOffset(fadeIn, offset) {
 	$('img.bsLazyLoad').each(function() {
 		if (bsIsScrolledIntoViewWithOffset($(this), offset)) {
-			bsLazyLoadImage($(this), fadeIn);
+			bsLazyLoadImage($(this), fadeIn, null);
 		}
 	});
 }
 
-function bsLazyLoadImage(img, fadeIn) {
+// Lazy load images with a callback function
+//		- fadeIn: true/false - Images will fade in after loading
+//		- callback: The name of the JavaScript function to be called
+
+function bsLazyLoadImagesWithCallback(fadeIn, callback) {
+	$('img.bsLazyLoad').each(function() {
+		bsLazyLoadImage($(this), fadeIn, callback);
+	});
+}
+
+
+// Lazy load images with an offset
+//		- fadeIn: true/false - Images will fade in after loading
+//		- offset: Pixel offset for when the images should be loaded
+//		- callback: The name of the JavaScript function to be called
+
+function bsLazyLoadImagesWithOffsetAndCallback(fadeIn, offset, callback) {
+	$('img.bsLazyLoad').each(function() {
+		if (bsIsScrolledIntoViewWithOffset($(this), offset)) {
+			bsLazyLoadImage($(this), fadeIn, callback);
+		}
+	});
+}
+
+function bsLazyLoadImage(img, fadeIn, callback) {
 	var lazySrc = img.attr('data-src');
 	var newImg = $("<img />").attr('src', lazySrc).load(function() {
         if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
@@ -153,6 +178,10 @@ function bsLazyLoadImage(img, fadeIn) {
 	        }
 	        else {
     	    	img.css('opacity', 1);
+			}
+			
+			if (callback) {
+				eval(callback);
 			}
         }
     });
@@ -174,6 +203,12 @@ function bsIsTouch() {
 	return (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 }
 
+
+// Check if device has a 
+
+function bsIsRetina() {
+	return window.devicePixelRatio > 1;
+}
 
 // Set and get cookies
 
