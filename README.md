@@ -69,6 +69,17 @@ An example image tag:
 	<img src="blank.gif" data-src="image-to-load.jpg" class="bsLazyLoad">
 ```
 
+Preload Images
+--------------
+
+There is one method to call for preloading images:
+
+- `bsPreloadImages(arrayOfImages)` : "arrayOfImages" must be an array of image element objects, i.e.:
+
+```javascript
+	var arrayOfImages = document.getElementsByClassName('images-to-preload');
+```
+
 
 Animated Scrolling
 ------------------
@@ -95,3 +106,12 @@ Check if device is a touch screen
 There is one method which checks whether the user's device is a touch device or not:
 
 - `bsIsTouch()` : returns true or false
+
+
+Set and get cookies
+-------------------
+
+There are two methods for managing cookies:
+
+- `bsSetCookie(c_name, value, exdays)` : all passed variables are strings; "c_name" is the name of the cookie, "value" is the value to be set, and "exdays" are the number of days the cookie should be valid for
+- `bsGetCookie(c_name)` : returns the value of the specified cookie; "c_name" is a string with the name of the cookie

@@ -1,6 +1,6 @@
 /*
 *	Basics.js
-*	Version 0.1
+*	Version 0.2
 *	Copyright (c) Alex Seifert 2014
 *	http://www.alexseifert.com
 *	https://github.com/eiskalteschatten/Basics.js
@@ -124,6 +124,7 @@ function bsLazyLoadImages(fadeIn) {
 	});
 }
 
+
 // Lazy load images with an offset
 //		- offset: Pixel offset for when the images should be loaded
 
@@ -158,8 +159,50 @@ function bsLazyLoadImage(img, fadeIn) {
 }
 
 
+// Preload images
+
+function bsPreloadImages(arrayOfImages) {
+    $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
+
+
 // Check if device is a touch screen
 
 function bsIsTouch() {
 	return (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+}
+
+
+// Set and get cookies
+
+function bsSetCookie(c_name, value, exdays) {
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	document.cookie=c_name + "=" + c_value;
+}
+
+function bsGetCookie(c_name) {
+	var c_value = document.cookie;
+	var c_start = c_value.indexOf(" " + c_name + "=");
+	
+	if (c_start == -1) {
+	    c_start = c_value.indexOf(c_name + "=");
+	}
+	
+	if (c_start == -1) {
+	    c_value = null;
+	}
+	else {
+	    c_start = c_value.indexOf("=", c_start) + 1;
+	    var c_end = c_value.indexOf(";", c_start);
+	    if (c_end == -1) {
+	    	c_end = c_value.length;
+	    }
+	    c_value = unescape(c_value.substring(c_start,c_end));
+	}
+	
+	return c_value;
 }
