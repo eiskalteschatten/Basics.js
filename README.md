@@ -128,6 +128,14 @@ There is one method which checks whether the user's device has a retina display 
 - `bsIsRetina()` : returns true or false
 
 
+Check if device is a mobile device
+----------------------------------
+
+There is one method which checks whether the user is using a mobile device:
+
+- `bsIsMobileBrowser()` : returns true or false
+
+
 Set and get cookies
 -------------------
 
