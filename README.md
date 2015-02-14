@@ -71,7 +71,7 @@ There are two parts that the image tag requires in order for the script to lazil
 - `class="bsLazyLoad"`
 - `data-src="path/to/image/to/be/loaded.jpg"` 
 
-If you want to automatically load larger images for a Retina screen, add this to your image tag as well as the normal 'data-src':
+If you want to automatically load larger images for a Retina screen, add this attribute to your image tag as well as the normal 'data-src'. Mobile devices will load the non-Retina image:
 
 - `data-retina-src="path/to/retina/image/to/be/loaded.jpg"`
 
