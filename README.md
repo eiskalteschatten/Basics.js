@@ -69,7 +69,11 @@ You should call these methods on window load, on window scroll, or whenever you 
 There are two parts that the image tag requires in order for the script to lazily load the images:
 
 - `class="bsLazyLoad"`
-- `data-src="path/to/image/to/be/loaded.jpg"`
+- `data-src="path/to/image/to/be/loaded.jpg"` 
+
+If you want to automatically load larger images for a Retina screen, add this to your image tag as well as the normal 'data-src':
+
+- `data-retina-src="path/to/retina/image/to/be/loaded.jpg"`
 
 An example image tag:
 

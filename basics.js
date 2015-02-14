@@ -1,7 +1,7 @@
 /*
 *	Basics.js
-*	Version 0.2.2
-*	Copyright (c) Alex Seifert 2014
+*	Version 0.2.3
+*	Copyright (c) Alex Seifert 2014-2015
 *	http://www.alexseifert.com
 *	https://github.com/eiskalteschatten/Basics.js
 */
@@ -162,7 +162,13 @@ function bsLazyLoadImagesWithOffsetAndCallback(fadeIn, offset, callback) {
 }
 
 function bsLazyLoadImage(img, fadeIn, callback) {
-	var lazySrc = img.attr('data-src');
+	var lazySrc = undefined;
+	lazySrc = img.attr('data-retina-src');
+
+	if (!bsIsRetina() || lazySrc === undefined) {
+		lazySrc = img.attr('data-src');
+	}
+
 	var newImg = $("<img />").attr('src', lazySrc).load(function() {
         if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
             console.log("Image not found: "+lazySrc);
