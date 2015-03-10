@@ -81,6 +81,12 @@ An example image tag:
 	<img src="blank.gif" data-src="image-to-load.jpg" class="bsLazyLoad">
 ```
 
+An example image tag with Retina image:
+
+```html
+	<img src="blank.gif" data-src="normal-image-to-load.jpg" data-retina-src="retina-image-to-load.jpg" class="bsLazyLoad">
+```
+
 Preload Images
 --------------
 
