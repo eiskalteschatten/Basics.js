@@ -143,3 +143,13 @@ There are two methods for managing cookies:
 
 - `bsSetCookie(c_name, value, exdays)` : all passed variables are strings; "c_name" is the name of the cookie, "value" is the value to be set, and "exdays" are the number of days the cookie should be valid for
 - `bsGetCookie(c_name)` : returns the value of the specified cookie; "c_name" is a string with the name of the cookie
+
+
+Submit data to a URL via a virtual form with get or post
+--------------------------------------------------------
+
+There are three methods for submitting data via a virtual form:
+
+- `bsPostToUrl(path, params)` : submit data via post; "path" is the url to submit the form to, and "params" is the parameters passed as a JSON string
+- `bsGetToUrl(path, params)` : submit data via get; "path" is the url to submit the form to, and "params" is the parameters passed as a JSON string
+- `bsFormSubmit(path, params, method)` : submit data via post or get; "path" is the url to submit the form to, "params" is the parameters passed as a JSON string, and "method" is either "get" or "post"
