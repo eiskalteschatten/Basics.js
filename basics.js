@@ -1,6 +1,6 @@
 /*
 *   Basics.js
-*   Version 0.3
+*   Version 0.3.1
 *   Copyright (c) Alex Seifert 2014-2015
 *   http://www.alexseifert.com
 *   https://github.com/eiskalteschatten/Basics.js
@@ -12,7 +12,7 @@ window.onload = function() {
 
     if (typeof jQuery == 'undefined') {
         var jq = document.createElement('script'); jq.type = 'text/javascript';
-        jq.src = '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
+        jq.src = '//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js';
         document.getElementsByTagName('head')[0].appendChild(jq);
     } 
 }
