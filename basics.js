@@ -261,7 +261,7 @@ function bsGetCookie(c_name) {
 
 // Send a virtual form to a URL via get or post
 //      - path: url to submit the form to
-//      - params: the paramters as JSON string
+//      - params: the parameters as JSON string
 
 function bsPostToUrl(path, params) {
     bsFormSubmit(path, params, "post");
