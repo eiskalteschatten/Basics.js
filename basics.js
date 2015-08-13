@@ -1,6 +1,6 @@
 /*
 *   Basics.js
-*   Version 0.3.1
+*   Version 0.3.2
 *   Copyright (c) Alex Seifert 2014-2015
 *   http://www.alexseifert.com
 *   https://github.com/eiskalteschatten/Basics.js
@@ -160,6 +160,20 @@ function bsLazyLoadImagesWithOffsetAndCallback(fadeIn, offset, callback) {
         }
     });
 }
+
+
+// Lazy load a specific image with an offset
+//      - img: images as a jQuery Object; i.e. $('#myImage')
+//      - fadeIn: true/false - Images will fade in after loading
+//      - offset: Pixel offset for when the images should be loaded
+//      - callback: The name of the JavaScript function to be called
+
+function bsLazyLoadAnImageWithOffsetAndCallback(img, fadeIn, offset, callback) {
+    if (bsIsScrolledIntoViewWithOffset(img, offset)) {
+        bsLazyLoadImage(img, fadeIn, callback);
+    }
+}
+
 
 function bsLazyLoadImage(img, fadeIn, callback) {
     var lazySrc = undefined;
