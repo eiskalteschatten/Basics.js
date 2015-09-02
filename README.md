@@ -91,13 +91,15 @@ An example image tag with Retina image:
 Preload Images
 --------------
 
-There is one method to call for preloading images:
+There are two methods to call for preloading images:
 
 - `bsPreloadImages(arrayOfImages)` : "arrayOfImages" must be an array of image element objects, i.e.:
 
 ```javascript
 	var arrayOfImages = document.getElementsByClassName('images-to-preload');
 ```
+
+- `bsPreloadImage(urlOfImage)` : "urlOfImage" must be a string with the url or path of the image to be preloaded.
 
 
 Animated Scrolling

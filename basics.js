@@ -1,8 +1,8 @@
 /*
 *   Basics.js
-*   Version 0.3.2
+*   Version 0.3.3
 *   Copyright (c) Alex Seifert 2014-2015
-*   http://www.alexseifert.com
+*   https://www.alexseifert.com
 *   https://github.com/eiskalteschatten/Basics.js
 */
 
@@ -214,6 +214,13 @@ function bsPreloadImages(arrayOfImages) {
     $(arrayOfImages).each(function(){
         $('<img/>')[0].src = this;
     });
+}
+
+
+// Preload image by path
+
+function bsPreloadImage(urlOfImage) {
+    $('<img/>')[0].src = urlOfImage;
 }
 
 
