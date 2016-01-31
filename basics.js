@@ -1,7 +1,7 @@
 /*
 *   Basics.js
-*   Version 0.3.3
-*   Copyright (c) Alex Seifert 2014-2015
+*   Version 0.3.4
+*   Copyright (c) Alex Seifert 2014-2016
 *   https://www.alexseifert.com
 *   https://github.com/eiskalteschatten/Basics.js
 */
@@ -76,11 +76,15 @@ function bsScrollTo(px) {
 }
 
 function bsScrollToId(id) {
+	bsScrollToIdWithOffset(id, 0);
+}
+
+function bsScrollToIdWithOffset(id, offset) {
     if (id.indexOf('#') == -1) {
         id = "#" + id;
     }
     
-    $('html, body').animate({scrollTop: $(id).offset().top}, 2000, 'easeInOutCubic');
+    $('html, body').animate({scrollTop: $(id).offset().top + offset}, 2000, 'easeInOutCubic');
 }
 
 function bsScrollToTop() {

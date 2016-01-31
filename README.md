@@ -109,6 +109,7 @@ There are three methods for animated scrolling:
 
 - `bsScrollTo(px)` : scrolls vertically to a certain pixel on the page
 - `bsScrollToId(id)` : scrolls to an element with a certain id
+- `bsScrollToIdWithOffset(id, offset)` : scrolls to an element with a certain id with an offset
 - `bsScrollToTop()` : scrolls to the top of the page
 
 
