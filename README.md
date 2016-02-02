@@ -35,7 +35,9 @@ Image Lazy Loading
 There are five methods to call for lazy loading images:
 
 - `bsLazyLoadImages(fadeIn)` : "fadeIn" is true/false; this lazy loads all images on the page with the required parts in the image tag (see below)
+- `bsLazyLoadImagesWithClass(fadeIn, customClass)` : "fadeIn" is true/false; "customClass" is the name of the custom class; this lazy loads all images with a custom class on the page with the required parts in the image tag (see below)
 - `bsLazyLoadImagesWithOffset(fadeIn, offset)` : "fadeIn" is true/false; "offset" is the number of pixels outside of the viewport the image should load
+- `bsLazyLoadImagesWithOffsetAndClass(fadeIn, offset, customClass)` : "fadeIn" is true/false; "offset" is the number of pixels outside of the viewport the image should load; "customClass" is the name of the custom class
 - `bsLazyLoadImagesWithCallback(fadeIn, callback)` : "fadeIn" is true/false; "callback" is the name of the method to be called (can be null); this lazy loads all images on the page with the required parts in the image tag (see below)
 - `bsLazyLoadImagesWithOffsetAndCallback(fadeIn, offset, callback)` : "fadeIn" is true/false; "offset" is the number of pixels outside of the viewport the image should load; "callback" is the name of the method to be called (can be null)
 - `bsLazyLoadAnImageWithOffsetAndCallback(img, fadeIn, offset, callback)` : load a specific image (must be passed as a jQuery object, i.e. `$('#myImage')`); "fadeIn" is true/false; "offset" is the number of pixels outside of the viewport the image should load; "callback" is the name of the method to be called (can be null)

@@ -1,6 +1,6 @@
 /*
 *   Basics.js
-*   Version 0.3.4
+*   Version 0.3.5
 *   Copyright (c) Alex Seifert 2014-2016
 *   https://www.alexseifert.com
 *   https://github.com/eiskalteschatten/Basics.js
@@ -12,7 +12,7 @@ window.onload = function() {
 
     if (typeof jQuery == 'undefined') {
         var jq = document.createElement('script'); jq.type = 'text/javascript';
-        jq.src = '//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js';
+        jq.src = '//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js';
         document.getElementsByTagName('head')[0].appendChild(jq);
     } 
 }
@@ -123,7 +123,18 @@ function bsIsScrolledIntoViewWithOffset(elem, offset) {
 //      - fadeIn: true/false - Images will fade in after loading
 
 function bsLazyLoadImages(fadeIn) {
-    $('img.bsLazyLoad').each(function() {
+	bsLazyLoadImagesWithClass(fadeIn, "bsLazyLoad");
+}
+
+
+// Image lazy loading with custom class
+//      - All images that should be defined with a custom class and 
+//        the attribute "data-src" with the path to the image
+//      - fadeIn: true/false - Images will fade in after loading
+//      - customClass: The name of the custom class
+
+function bsLazyLoadImagesWithClass(fadeIn, customClass) {
+    $('img.' + customClass).each(function() {
         bsLazyLoadImage($(this), fadeIn, null);
     });
 }
@@ -134,12 +145,22 @@ function bsLazyLoadImages(fadeIn) {
 //      - offset: Pixel offset for when the images should be loaded
 
 function bsLazyLoadImagesWithOffset(fadeIn, offset) {
-    $('img.bsLazyLoad').each(function() {
-        if (bsIsScrolledIntoViewWithOffset($(this), offset)) {
+	bsLazyLoadImagesWithOffsetAndClass(fadeIn, offset, "bsLazyLoad");
+}
+
+// Lazy load images with an offset and custom class
+//      - fadeIn: true/false - Images will fade in after loading
+//      - offset: Pixel offset for when the images should be loaded
+//      - customClass: The name of the custom class
+
+function bsLazyLoadImagesWithOffsetAndClass(fadeIn, offset, customClass) {
+    $('img.' + customClass).each(function() {
+		if (bsIsScrolledIntoViewWithOffset($(this), offset)) {
             bsLazyLoadImage($(this), fadeIn, null);
         }
     });
 }
+
 
 // Lazy load images with a callback function
 //      - fadeIn: true/false - Images will fade in after loading
