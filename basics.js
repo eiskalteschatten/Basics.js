@@ -1,6 +1,6 @@
 /*
 *   Basics.js
-*   Version 0.3.5
+*   Version 0.3.5.1
 *   Copyright (c) Alex Seifert 2014-2016
 *   https://www.alexseifert.com
 *   https://github.com/eiskalteschatten/Basics.js
@@ -217,7 +217,8 @@ function bsLazyLoadImage(img, fadeIn, callback) {
             img.attr('src', lazySrc);
             img.removeClass('bsLazyLoad');
             img.removeAttr('data-src');
-            
+			img.removeAttr('data-retina-src');
+			
             if (fadeIn) {
                 img.animate({opacity: 1});
             }
